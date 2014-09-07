@@ -31,7 +31,6 @@ public class ApiVersionResourceFilterFactory implements ResourceFilterFactory {
     @Override
     public List<ResourceFilter> create(AbstractMethod am) {
         List<ResourceFilter> response = null;
-        // Add VersionFilter for resource methods annotated with @Secure annotation (ignore other resource methods).
         boolean hasApiVersionAnnotation = am.isAnnotationPresent(ApiVersion.class);
 
         if(hasApiVersionAnnotation) {
