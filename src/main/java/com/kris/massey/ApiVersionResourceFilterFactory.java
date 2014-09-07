@@ -74,8 +74,8 @@ public class ApiVersionResourceFilterFactory implements ResourceFilterFactory {
                 return request;
             }
 
-            String minVersionString = minVersion == 0 ? "\"no minimum version\"" : String.valueOf(minVersion);
-            String maxVersionString = minVersion == 0 ? "\"no maximum version\"" : String.valueOf(maxVersion);
+            String minVersionString = minVersion == 0.0f ? "\"no minimum version\"" : String.valueOf(minVersion);
+            String maxVersionString = maxVersion == 0.0f ? "\"no maximum version\"" : String.valueOf(maxVersion);
 
             Response badRequest = Response.status(Response.Status.BAD_REQUEST)
                     .entity(String.format(BAD_REQUEST_RESPONSE_TEMPLATE, versionHeaderName, headerRequired, minVersionString, maxVersionString))
