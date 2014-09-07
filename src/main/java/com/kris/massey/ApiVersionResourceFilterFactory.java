@@ -13,8 +13,9 @@ import java.util.List;
 @Provider
 public class ApiVersionResourceFilterFactory implements ResourceFilterFactory {
 
+    //TODO the contract is broken between Float and a string this needs to be cleaned up.
 
-    private static final String BAD_REQUEST_RESPONSE_TEMPLATE = "{\"message\": {\"versionHeaderName: \"%s\"\", \"headerRequired\":%b,\"minVersion\":%s,\"maxVersion\":%s}}";
+    private static final String BAD_REQUEST_RESPONSE_TEMPLATE = "{\"message\": {\"versionHeaderName\": \"%s\", \"headerRequired\":%b,\"minVersion\":%s,\"maxVersion\":%s}}";
     private final ApiVersionMatcher apiVersionMatcher;
     private final String versionHeaderName;
 
