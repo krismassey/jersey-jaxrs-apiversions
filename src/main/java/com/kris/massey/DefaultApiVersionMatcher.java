@@ -40,18 +40,19 @@ public class DefaultApiVersionMatcher implements ApiVersionMatcher {
     }
 
     private boolean isInvalidOrNotSupported(float minVersion, float maxVersion, String versionHeader) {
-        return !versionHeaderIsValidNumber(versionHeader) || !versionIsSupported(minVersion, maxVersion, Float.valueOf(versionHeader));
+        return versionHeaderIsInvalidNumber(versionHeader) || !versionIsSupported(minVersion, maxVersion, Float.valueOf(versionHeader));
     }
 
-    private boolean versionHeaderIsValidNumber(String versionHeader) {
-        boolean valid = true;
+    private boolean versionHeaderIsInvalidNumber(String versionHeader) {
+        boolean invalid = false;
+
         try {
             Float.valueOf(versionHeader);
         } catch (NumberFormatException e) {
-            valid = false;
+            invalid = true;
         }
 
-        return valid;
+        return invalid;
     }
 
     private boolean versionIsSupported(float minVersion, float maxVersion, float requestVersion) {

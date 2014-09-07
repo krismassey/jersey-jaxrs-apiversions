@@ -15,16 +15,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class ApiVersionDispatchProviderTest extends JerseyTest {
+public class ApiVersionResourceFilterFactoryTest extends JerseyTest {
 
 
-    public static final String VERSION_HEADER_NAME = "Version";
-    public static final String INVALID_VERSION_HEADER = "INVALID";
+    private static final String VERSION_HEADER_NAME = "Version";
+    private static final String INVALID_VERSION_HEADER = "INVALID";
 
-    public ApiVersionDispatchProviderTest()throws Exception {
+    public ApiVersionResourceFilterFactoryTest()throws Exception {
         super(new WebAppDescriptor.Builder()
                 .initParam(PackagesResourceConfig.PROPERTY_PACKAGES, "com.kris.massey")
-                .initParam(PackagesResourceConfig.PROPERTY_RESOURCE_FILTER_FACTORIES, "com.kris.massey.ApiVersionDispatchProvider")
+                .initParam(PackagesResourceConfig.PROPERTY_RESOURCE_FILTER_FACTORIES, "com.kris.massey.ApiVersionResourceFilterFactory")
                 .build());
     }
 
@@ -38,7 +38,7 @@ public class ApiVersionDispatchProviderTest extends JerseyTest {
 
         assertThat(response.getStatus(), is(Response.Status.BAD_REQUEST.getStatusCode()));
         String responseBody = response.getEntity(String.class);
-        assertThat(responseBody, equalTo("{\"message\"{\"versionHeaderName: \"" + VERSION_HEADER_NAME + "\"\", \"headerRequired\":true,\"minVersion\":\"no minimum version\",\"maxVersion\":\"no maximum version\"}}"));
+        assertThat(responseBody, equalTo("{\"message\": {\"versionHeaderName: \"" + VERSION_HEADER_NAME + "\"\", \"headerRequired\":true,\"minVersion\":\"no minimum version\",\"maxVersion\":\"no maximum version\"}}"));
     }
 
     @Test

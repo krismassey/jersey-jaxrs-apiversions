@@ -11,19 +11,19 @@ import java.util.Collections;
 import java.util.List;
 
 @Provider
-public class ApiVersionDispatchProvider implements ResourceFilterFactory {
+public class ApiVersionResourceFilterFactory implements ResourceFilterFactory {
 
 
-    private final String BAD_REQUEST_RESPONSE_TEMPLATE = "{\"message\"{\"versionHeaderName: \"%s\"\", \"headerRequired\":%b,\"minVersion\":%s,\"maxVersion\":%s}}";
+    private static final String BAD_REQUEST_RESPONSE_TEMPLATE = "{\"message\": {\"versionHeaderName: \"%s\"\", \"headerRequired\":%b,\"minVersion\":%s,\"maxVersion\":%s}}";
     private final ApiVersionMatcher apiVersionMatcher;
     private final String versionHeaderName;
 
-    public ApiVersionDispatchProvider(ApiVersionMatcher apiVersionMatcher, String versionHeaderName) {
+    public ApiVersionResourceFilterFactory(ApiVersionMatcher apiVersionMatcher, String versionHeaderName) {
         this.apiVersionMatcher = apiVersionMatcher;
         this.versionHeaderName = versionHeaderName;
     }
 
-    public ApiVersionDispatchProvider() {
+    public ApiVersionResourceFilterFactory() {
         this.versionHeaderName = "Version";
         this.apiVersionMatcher = new DefaultApiVersionMatcher(versionHeaderName);
     }
