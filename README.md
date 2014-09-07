@@ -75,5 +75,4 @@ The constructor of the **ApiVersionResourceFilterFactory** class allows two para
 
  ## DefaultApiVersionMatcher
 
- The default implementation for versioning matching is within the DefaultApiVersionMatcher.
-
+ The default implementation for versioning matching is within the [DefaultApiVersionMatcher](https://github.com/krismassey/jersey-jaxrs-apiversions/blob/master/src/main/java/com/kris/massey/DefaultApiVersionMatcher.java).
