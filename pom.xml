@@ -9,7 +9,6 @@
     <version>1.0</version>
 
     <properties>
-
         <jersey.version>1.18.1</jersey.version>
     </properties>
 
@@ -36,8 +35,8 @@
 
 
         <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-test-framework</artifactId>
+            <groupId>com.sun.jersey.jersey-test-framework</groupId>
+            <artifactId>jersey-test-framework-core</artifactId>
             <version>${jersey.version}</version>
             <scope>test</scope>
         </dependency>
