@@ -59,7 +59,7 @@ an over view of the issue within the response body. An example of this is below:
 ```json
 {
     "message": {
-        "versionHeaderName: "Version",
+        "versionHeaderName": "Version",
         "headerRequired": true,
         "minVersion": 1,
         "maxVersion": 2.5
