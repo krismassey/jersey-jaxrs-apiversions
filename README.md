@@ -73,6 +73,6 @@ The constructor of the **ApiVersionResourceFilterFactory** class allows two para
 **ApiVersionMatcher**, and the second is a custom name for the **versionHeader**. By default the **DefaultApiVersionMatcher**
  is used and the default versioning header name 'Version'.
 
- ## DefaultApiVersionMatcher
+## DefaultApiVersionMatcher
 
  The default implementation for versioning matching is within the [DefaultApiVersionMatcher](https://github.com/krismassey/jersey-jaxrs-apiversions/blob/master/src/main/java/com/kris/massey/DefaultApiVersionMatcher.java).
